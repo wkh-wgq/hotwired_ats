@@ -1,4 +1,17 @@
 Rails.application.routes.draw do
+  devise_for :users,
+    path: "",
+    controllers: {
+      registrations: "users/registrations",
+      sessions: "users/sessions"
+    },
+    path_names: {
+      sign_in: "login",
+      password: "forgot",
+      confirmation: "confirm",
+      sign_up: "sign_up",
+      sign_out: "signout"
+    }
   get "dashboard/show"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -11,5 +24,12 @@ Rails.application.routes.draw do
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
   # Defines the root path route ("/")
-  root to: "dashboard#show"
+  # root to: "dashboard#show"
+  authenticated :user do
+    root to: "dashboard#show", as: :user_root
+  end
+
+  devise_scope :user do
+    root to: "devise/sessions#new"
+  end
 end
