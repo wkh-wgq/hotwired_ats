@@ -18,7 +18,7 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
 
-  <body>
+  <body data-controller="slideover">
     <div class="flex flex-col h-screen justify-between px-4 md:px-0">
       <%= render "nav/top_nav" %>
       <main class="mb-auto w-full overflow-auto">
@@ -33,5 +33,6 @@
         <% end %>
       </div>
     </div>
+    <%= render "shared/slideover" %>
   </body>
 </html>
