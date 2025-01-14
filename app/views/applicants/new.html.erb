@@ -1,0 +1,12 @@
+<%= turbo_frame_tag "slideover" do %>
+  <div class="flex px-6 justify-between items-baseline bg-gray-900">
+    <h3 class="text-xl text-white">Add a new applicant</h3>
+    <button data-action="slideover#close" class="flex items-center justify-center h-12 w-12 rounded-full focus:outline-none focus:bg-gray-600 hover:bg-gray-600" aria-lable="Close slideover">
+      <%= inline_svg_tag "close.svg", class: "h-7 w-7 text-white" %>
+    </button>
+  </div>
+
+  <div class="mt-4 px-4 text-gray-700">
+    <%= render "form", applicant: @applicant %>
+  </div>
+<% end %>
