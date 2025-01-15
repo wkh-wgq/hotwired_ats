@@ -83,8 +83,12 @@ GEM
     brakeman (7.0.0)
       racc
     builder (3.3.0)
-    cable_ready (5.0.0.pre8)
-      rails (>= 5.2)
+    cable_ready (5.0.6)
+      actionpack (>= 5.2)
+      actionview (>= 5.2)
+      activesupport (>= 5.2)
+      observer (~> 0.1)
+      railties (>= 5.2)
       thread-local (>= 1.1.0)
     concurrent-ruby (1.3.4)
     connection_pool (2.5.0)
@@ -131,7 +135,7 @@ GEM
       activesupport (>= 6.0.0)
       redis (>= 4.2, < 6)
     language_server-protocol (3.17.0.3)
-    logger (1.6.4)
+    logger (1.6.5)
     loofah (2.24.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -159,6 +163,9 @@ GEM
       racc (~> 1.4)
     nokogiri (1.18.1-x86_64-linux-gnu)
       racc (~> 1.4)
+    nokogiri-html5-inference (0.3.0)
+      nokogiri (~> 1.14)
+    observer (0.1.2)
     orm_adapter (0.5.0)
     parallel (1.26.3)
     parser (3.3.6.0)
@@ -217,7 +224,7 @@ GEM
       psych (>= 4.0.0)
     redis (5.3.0)
       redis-client (>= 0.22.0)
-    redis-client (0.23.0)
+    redis-client (0.23.1)
       connection_pool
     regexp_parser (2.10.0)
     reline (0.6.0)
@@ -267,12 +274,17 @@ GEM
       sprockets (>= 3.0.0)
     stimulus-rails (1.3.4)
       railties (>= 6.0.0)
-    stimulus_reflex (3.5.0.pre8)
-      cable_ready (= 5.0.0.pre8)
-      nokogiri
-      rack
-      rails (>= 5.2)
-      redis
+    stimulus_reflex (3.5.3)
+      actioncable (>= 5.2)
+      actionpack (>= 5.2)
+      actionview (>= 5.2)
+      activesupport (>= 5.2)
+      cable_ready (~> 5.0)
+      nokogiri (~> 1.0)
+      nokogiri-html5-inference (~> 0.3)
+      rack (>= 2, < 4)
+      railties (>= 5.2)
+      redis (>= 4.0, < 6.0)
     stringio (3.1.2)
     thor (1.3.2)
     thread-local (1.1.0)
@@ -322,7 +334,7 @@ DEPENDENCIES
   rubocop-rails-omakase
   sprockets-rails
   stimulus-rails
-  stimulus_reflex (= 3.5.0.pre8)
+  stimulus_reflex (= 3.5.3)
   turbo-rails
   tzinfo-data
   web-console
