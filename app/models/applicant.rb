@@ -1,18 +1,20 @@
 class Applicant < ApplicationRecord
   include PgSearch::Model
   belongs_to :job
+  has_many :emails, dependent: :destroy
+
   has_one_attached :resume
 
   FILTER_PARAMS = %i[query job sort].freeze
 
-  enum stage: {
+  enum :stage, {
     application: "application",
     interview: "interview",
     offer: "offer",
     hired: "hired"
   }
 
-  enum status: {
+  enum :status, {
     active: "active",
     inactive: "inactive"
   }

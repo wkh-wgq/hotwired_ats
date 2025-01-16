@@ -6,13 +6,13 @@ class Job < ApplicationRecord
 
   FILTER_PARAMS = %i[query status sort].freeze
 
-  enum status: {
+  enum :status, {
     draft: "draft",
     open: "open",
     closed: "closed"
   }
 
-  enum job_type: {
+  enum :job_type, {
     full_time: "full_time",
     part_time: "part_time"
   }

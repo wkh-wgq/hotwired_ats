@@ -1,10 +1,30 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @applicant %>
-
-<div>
-  <%= link_to "Edit this applicant", edit_applicant_path(@applicant) %> |
-  <%= link_to "Back to applicants", applicants_path %>
-
-  <%= button_to "Destroy this applicant", @applicant, method: :delete %>
+<div class="flex items-baseline justify-between mb-6 text-gray-700">
+  <h2 class="mt-6 text-3xl font-extrabold">
+    <%= @applicant.name %>
+  </h2>
+  <%= link_to "Send eamil", new_applicant_email_path(@applicant), class: "btn-primary-outline", data: { action: "click->slideover#open", turbo_frame: "slideover" } %>
 </div>
+<div class="shadow p-4 text-gray-700">
+  <div class="flex justify-between mb-6">
+    <div class="space-y-2">
+      <h3 class="text-xl font-bold">Applicant info</h3>
+      <p><%= mail_to @applicant.email %></p>
+      <p><%= phone_to @applicant.phone %></p>
+    </div>
+    <div class="space-y-2">
+      <h3 class="text-xl font-bold">Applicant details</h3>
+      <p>Applied fof <%= @applicant.job.title %></p>
+      <p>Applied on <%= l(@applicant.created_at.to_date, format: :long) %></p>
+    </div>
+    <div class="space-y-2">
+    </div>
+  </div>
+</div>
+
+<% if @applicant.resume.attached? %>
+  <%= turbo_frame_tag "resume", src: applicant_resume_path(@applicant), loading: "lazy" do %>
+    <div class="w-full bg-gray-100 rounded flex justify-center items-center h-[1000px]">
+      Loading...
+    </div>
+  <% end %>
+<% end %>
