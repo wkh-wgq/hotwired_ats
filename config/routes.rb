@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :notifications, only: %i[index]
   resources :applicants do
     patch :change_stage, on: :member
     get :resume, action: :show, controller: "resumes"
