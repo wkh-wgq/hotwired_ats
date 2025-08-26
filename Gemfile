@@ -56,4 +56,4 @@ group :development do
 end
 
 
-gem "stimulus_reflex", "= 3.5.0.pre8"
+gem "stimulus_reflex", "3.5.5"
