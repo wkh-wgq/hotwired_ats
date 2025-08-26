@@ -82,8 +82,12 @@ GEM
     brakeman (7.1.0)
       racc
     builder (3.3.0)
-    cable_ready (5.0.0.pre8)
-      rails (>= 5.2)
+    cable_ready (5.0.6)
+      actionpack (>= 5.2)
+      actionview (>= 5.2)
+      activesupport (>= 5.2)
+      observer (~> 0.1)
+      railties (>= 5.2)
       thread-local (>= 1.1.0)
     cgi (0.5.0)
     concurrent-ruby (1.3.5)
@@ -146,6 +150,10 @@ GEM
       racc (~> 1.4)
     nokogiri (1.18.9-x86_64-linux-gnu)
       racc (~> 1.4)
+    nokogiri-html5-inference (0.3.0)
+      nokogiri (~> 1.14)
+    observer (0.1.2)
+    ostruct (0.6.3)
     parallel (1.27.0)
     parser (3.3.9.0)
       ast (~> 2.4.1)
@@ -252,12 +260,18 @@ GEM
       sprockets (>= 3.0.0)
     stimulus-rails (1.3.4)
       railties (>= 6.0.0)
-    stimulus_reflex (3.5.0.pre8)
-      cable_ready (= 5.0.0.pre8)
-      nokogiri
-      rack
-      rails (>= 5.2)
-      redis
+    stimulus_reflex (3.5.5)
+      actioncable (>= 5.2)
+      actionpack (>= 5.2)
+      actionview (>= 5.2)
+      activesupport (>= 5.2)
+      cable_ready (~> 5.0)
+      nokogiri (~> 1.0)
+      nokogiri-html5-inference (~> 0.3)
+      ostruct (~> 0.6)
+      rack (>= 2, < 4)
+      railties (>= 5.2)
+      redis (>= 4.0, < 6.0)
     stringio (3.1.7)
     thor (1.4.0)
     thread-local (1.1.0)
@@ -301,7 +315,7 @@ DEPENDENCIES
   rubocop-rails-omakase
   sprockets-rails
   stimulus-rails
-  stimulus_reflex (= 3.5.0.pre8)
+  stimulus_reflex (= 3.5.5)
   turbo-rails
   tzinfo-data
   web-console
